@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Chatbot Demo</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <main class="chat-container">
+    <header>
+      <h1> AI Chatbot</h1>
+      <p class="subtitle">Ask anything – the bot will answer!</p>
+    </header>
+
+    <section id="chatLog" class="chat-log" aria-live="polite"></section> 
+
+    <form id="chatForm" class="chat-form">
+      <input
+        type="text"
+        id="userInput"
+        placeholder="Type your message…"
+        autocomplete="off"
+        required
+        aria-label="Chat message"
+      />
+      <button type="submit">Send</button>
+    </form>
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}" type="module"></script>
+</body>
+</html>
+
+ 
+
