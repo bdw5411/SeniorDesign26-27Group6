@@ -1,0 +1,11 @@
+# Groq API key
+APIKey.txt
+
+# Python files
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Environment variables
+.env

@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AI Chatbot</title>
+
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}"
+  />
+</head>
+
+<body>
+
+  <!-- ===================================== -->
+  <!-- MAIN WEBSITE CONTAINER -->
+  <!-- ===================================== -->
+  <div class="app-container">
+
+    <!-- ===================================== -->
+    <!-- LEFT SIDEBAR -->
+    <!-- ===================================== -->
+    <aside class="sidebar">
+
+      <h2>Chat History</h2>
+
+      <!-- Search Chats -->
+      <div class="search-container">
+        <input
+          type="text"
+          id="chatSearch"
+          placeholder="Search chats..."
+          aria-label="Search chats"
+        />
+      </div>
+
+      <!-- ===================================== -->
+      <!-- AGENT CHAT GROUPS -->
+      <!-- ===================================== -->
+      <div class="chat-history">
+
+        <!-- Default Agent -->
+        <div class="agent-group" data-agent-id="1">
+
+          <!-- Agent Header -->
+          <div class="agent-header">
+
+            <h3 class="agent-title">Agent 1</h3>
+
+            <!-- Create New Chat Button -->
+            <button
+              type="button"
+              class="add-chat-button"
+              id="addChatButton"
+              aria-label="Create new chat"
+              title="Create new chat"
+            >
+              +
+            </button>
+
+          </div>
+
+          <!-- Chats Belonging to Agent 1 -->
+          <div class="agent-chats" id="agentChats">
+
+            <button
+              type="button"
+              class="chat-item active"
+              data-chat-id="1"
+            >
+              Chat 1
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ===================================== -->
+      <!-- STORED INFORMATION -->
+      <!-- ===================================== -->
+      <section class="stored-info">
+
+        <h2>Stored Information</h2>
+
+        <!-- File Upload -->
+        <div class="upload-container">
+
+          <label for="fileUpload" class="upload-button">
+            + Upload File
+          </label>
+
+          <input
+            type="file"
+            id="fileUpload"
+            multiple
+            hidden
+          />
+
+        </div>
+
+        <!-- Uploaded Files -->
+        <div class="file-list" id="fileList">
+
+          <div class="file-item">File 1</div>
+          <div class="file-item">File 2</div>
+          <div class="file-item">File 3</div>
+
+        </div>
+
+      </section>
+
+    </aside>
+
+
+    <!-- ===================================== -->
+    <!-- MAIN CHAT AREA -->
+    <!-- ===================================== -->
+    <main class="main-content">
+
+      <!-- Chat Header -->
+      <header class="chat-header">
+
+        <h1>AI Chatbot</h1>
+
+        <!-- AI Model Selector -->
+        <div class="model-selector">
+
+          <label for="modelSelect">
+            AI Model:
+          </label>
+
+          <select id="modelSelect">
+
+            <option value="openai/gpt-oss-120b">
+              GPT-OSS 120B
+            </option>
+
+            <option value="model-2">
+              Model 2
+            </option>
+
+            <option value="model-3">
+              Model 3
+            </option>
+
+          </select>
+
+        </div>
+
+      </header>
+
+
+      <!-- ===================================== -->
+      <!-- CHAT OUTPUT -->
+      <!-- ===================================== -->
+      <section
+        id="chatLog"
+        class="chat-log"
+        aria-live="polite"
+        aria-label="Chat messages"
+      >
+      </section>
+
+
+      <!-- ===================================== -->
+      <!-- CHAT INPUT -->
+      <!-- ===================================== -->
+      <form id="chatForm" class="chat-form">
+
+        <input
+          type="text"
+          id="userInput"
+          placeholder="Type your message..."
+          autocomplete="off"
+          required
+          aria-label="Chat message"
+        />
+
+        <button
+          type="submit"
+          id="sendButton"
+        >
+          Send
+        </button>
+
+      </form>
+
+    </main>
+
+  </div>
+
+
+  <!-- ===================================== -->
+  <!-- JAVASCRIPT -->
+  <!-- ===================================== -->
+  <script
+    src="{{ url_for('static', filename='script.js') }}"
+    type="module"
+  ></script>
+
+</body>
+</html>
